@@ -22,6 +22,11 @@ Comment.belongsTo(Review, {
   onDelete: 'SET NULL'
 });
 
+Review.belongsTo(Book, {
+  foreignKey: 'review_id',
+  onDelete: 'SET NULL'
+})
+
 User.hasMany(Comment, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'

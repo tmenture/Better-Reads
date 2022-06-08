@@ -1,0 +1,21 @@
+ <div>
+        <a href="/dashboard/create/"><button id="create-review">create review</button></a>
+        
+        <h2>Your reviews</h2>
+    </div>
+{{#if review.length}}
+<section>
+{{#each review as |review|}}
+
+  {{> review-info review}}
+<button>
+      <a href="/dashboard/edit/{{id}}">Edit Review</a>
+ </button>
+ <br>
+ <br>
+{{/each}}
+</section>
+{{else}}
+<br>
+<h5> You have no reviews yet.</h5>
+{{/if}}

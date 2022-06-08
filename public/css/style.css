@@ -8,7 +8,7 @@
     margin: 0;
     font-family: sans-serif;
     color: #333;
-    background: linear-gradient(to bottom, white, #0af5cd35);
+    background: linear-gradient(to bottom, rgb(124, 124, 124), #18015591);
   }
   
   a {
@@ -27,10 +27,10 @@
   }
   
   button {
-    background-color: #0af5cd35;
+    background-color: #010955c5;
     border: 0;
     padding: 1%;
-    color: rgb(83, 82, 82);
+    color: white;
     font-weight: bold;
     transition: background-color .1s;
     cursor: pointer;
@@ -54,7 +54,7 @@
   
   textarea:focus, input:focus {
     outline: none;
-    border: 1px solid #0af5cd35;
+    border: 1px solid #010955c5;
   }
   
   textarea {
@@ -102,12 +102,12 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: rgb(83, 82, 82);
+    color: white;
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
-    background-color: #0af5cd35;
+    background-color: #18015591;
   }
   
   .btn-no-style:hover {
@@ -116,7 +116,7 @@
   }
   
   .delete-review-btn {
-    background-color: #030e6b;
+    background-color: gray;
     color: white;
   }
   
@@ -168,7 +168,8 @@
   }
   
   .card-header {
-    background-color: #0af5cd35;
+    background-color: #010955c5;
+    color: white;
     font-weight: bold;
   }
   

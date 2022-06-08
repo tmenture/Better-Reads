@@ -1,0 +1,40 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Review
+  </h2>
+  <form>
+    <div>
+      <label for="review-title">Title:</label>
+      <input name="review-title" type="text" value="{{review.title}}" />
+    </div>
+    <div>
+      <label for="review-content">Review:</label>
+      <input class="textarea" name="review-content" type="text" value="{{review.review_content}}" />
+    </div>
+    <div>
+      By you on {{format_date review.created_at}}
+      |
+      <a href="/review/{{review.id}}">{{review.comments.length}} {{format_plural "comment" review.comments.length}}</a>
+    </div>
+    <button type="submit">Save Review</button>
+    <button type="button">Delete review</button>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+    
+  </div>
+</form>
+
+{{> comments review.comments}}
+
+<script src="/javascript/edit-review.js"></script>
+<script src="/javascript/delete-review.js"></script>
+<script src="/javascript/comment.js"></script>

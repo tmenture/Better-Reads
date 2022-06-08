@@ -124,7 +124,7 @@ router.get('/create/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbReviewtData => {
+    .then(dbReviewData => {
       // serialize data before passing to template
       const reviews = dbReviewData.map(review => review.get({ plain: true }));
       res.render('create-review', { reviews, loggedIn: true });

@@ -5,10 +5,10 @@
     <div class="card-body"> 
         {{review_content}}
         <br>
-        <div class="review-comments-info float-end">
+        <div>
            By {{user.username}} on {{format_date created_at}}
             |
-           <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+           <a href="/reviews/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
         </div>
     </div>
   </div>

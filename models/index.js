@@ -23,7 +23,7 @@ Comment.belongsTo(Review, {
 });
 
 Review.belongsTo(Book, {
-  foreignKey: 'review_id',
+  foreignKey: 'book_id',
   onDelete: 'SET NULL'
 })
 
@@ -37,7 +37,7 @@ Review.hasMany(Comment, {
 });
 
 Book.hasMany(Review, {
-  foreignKey: 'review_id',
+  foreignKey: 'book_id',
   onDelete: 'SET NULL'
 })
 

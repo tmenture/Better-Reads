@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
     ],
+    order: [['created_at', 'DESC']],
     include: [
       {
         model: Comment,
@@ -37,7 +38,8 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-  })
+});
+
 router.get('/:id', (req, res) => {
   Review.findOne({
     where: {
@@ -121,7 +123,6 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
   Review.destroy({
     where: {
       id: req.params.id

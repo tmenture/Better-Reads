@@ -13,7 +13,8 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      'review_content'
+      'review_content',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
     ],
     include: [
       {
@@ -53,7 +54,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      'review_content'
+      'review_content',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
     ],
     include: [
       {
@@ -104,6 +106,7 @@ router.get('/create/', withAuth, (req, res) => {
       'title',
       'created_at',
       'review_content'
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
     ],
     include: [
       {

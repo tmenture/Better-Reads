@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Review, User, Comment} = require('../../models');
+const { Review, User, Comment, Book, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
       'review_content',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -32,7 +33,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbReviewData => res.json(dbReviewtData))
+    .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -49,6 +50,7 @@ router.get('/:id', (req, res) => {
       'review_content',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -96,6 +98,16 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+router.put('/upvote', withAuth, (req, res) => {
+  // custom static method created in models/Post.js
+  Review.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    .then(updatedVoteData => res.json(updatedVoteData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.put('/:id', withAuth, (req, res) => {
   Review.update(
     {
@@ -113,7 +125,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(404).json({ message: 'No review found with this id' });
         return;
       }
-      res.json(dbReviewtData);
+      res.json(dbReviewData);
     })
     .catch(err => {
       console.log(err);

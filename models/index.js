@@ -12,11 +12,10 @@ Review.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
-User.belongsToMany(Review, {
-  through: 'user_id',
-  as: 'reviews',
-  foreignKey: 'user_id'
-});
+//User.belongsToMany(Review, {
+ // through: 'review_id',
+ // foreignKey: 'user_id'
+//});
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',

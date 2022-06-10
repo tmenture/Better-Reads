@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
     ],
-    order: [['created_at', 'DESC']],
     include: [
       {
         model: Comment,
@@ -26,14 +25,10 @@ router.get('/', (req, res) => {
       {
         model: User,
         attributes: ['username']
-      },
-      {
-        model: Book,
-        attributes: ['title', 'author']
       }
     ]
   })
-    .then(dbReviewData => res.json(dbReviewData))
+    .then(dbReviewData => res.json(dbReviewtData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -84,11 +79,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+  // expects {title: 'Taskmaster goes public!', reviewt_url: 'https://taskmaster.com/press', user_id: 1}
   Review.create({
     title: req.body.title,
     review_content: req.body.review_content,
-    user_id: req.session.user_id,
-    book_id: req.body.book_id
+    user_id: req.session.user_id
   })
     .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {
@@ -107,14 +102,14 @@ router.put('/:id', withAuth, (req, res) => {
       where: {
         id: req.params.id
       }
-    }
+    },
   )
     .then(dbReviewData => {
       if (!dbReviewData) {
         res.status(404).json({ message: 'No review found with this id' });
         return;
       }
-      res.json(dbReviewData);
+      res.json(dbReviewtData);
     })
     .catch(err => {
       console.log(err);
@@ -123,6 +118,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
+  console.log('id', req.params.id);
   Review.destroy({
     where: {
       id: req.params.id

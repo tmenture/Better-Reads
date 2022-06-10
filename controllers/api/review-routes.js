@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Review, User, Comment, Book} = require('../../models');
+const { Review, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -25,6 +25,10 @@ router.get('/', (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Book,
+        attributes: ['title', 'author']
       }
     ]
   })
@@ -102,7 +106,7 @@ router.put('/:id', withAuth, (req, res) => {
       where: {
         id: req.params.id
       }
-    },
+    }
   )
     .then(dbReviewData => {
       if (!dbReviewData) {
@@ -138,3 +142,4 @@ router.delete('/:id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+

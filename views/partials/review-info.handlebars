@@ -1,14 +1,14 @@
 <div class="card mb-1">
     <div class="card-header card-title"> 
-       {{title}}
+       {{book.title}} by {{book.author}}
     </div>
     <div class="card-body"> 
         {{review_content}}
         <br>
-        <div>
+        <div class="review-comments-info float-end">
            By {{user.username}} on {{format_date created_at}}
             |
-           <a href="/reviews/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+           <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
         </div>
     </div>
   </div>

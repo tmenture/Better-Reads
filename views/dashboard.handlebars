@@ -1,15 +1,15 @@
  <div>
-        <a href="/dashboard/create/"><button id="create-review">create review</button></a>
+        <a href="/dashboard/create/"><button id="create-review" class="button is-primary is-pulled-right">create review</button></a>
         
-        <h2>Your reviews</h2>
+        <h2 class="title font-weight-bold">Your reviews</h2>
     </div>
-{{#if review.length}}
+{{#if reviews.length}}
 <section>
 {{#each reviews as |review|}}
 
   {{> review-info review}}
 <button>
-      <a href="/dashboard/edit/{{id}}">Edit Review</a>
+      <a href="/dashboard/edit/{{id}}" class="edit-link ml-4">Edit review</a>
  </button>
  <br>
  <br>

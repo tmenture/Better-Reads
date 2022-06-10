@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 });
 
 // get single review
-router.get('/reviews/:id', (req, res) => {
+router.get('/review/:id', (req, res) => {
   Review.findOne({
     where: {
       id: req.params.id
@@ -77,12 +77,12 @@ router.get('/reviews/:id', (req, res) => {
     ]
   })
     .then(dbReviewData => {
-      if (!dbReviewtData) {
+      if (!dbReviewData) {
         res.status(404).json({ message: 'No review found with this id' });
         return;
       }
 
-      const review = dbRevieData.get({ plain: true });
+      const review = dbReviewData.get({ plain: true });
 
       res.render('single-review', {
         review,

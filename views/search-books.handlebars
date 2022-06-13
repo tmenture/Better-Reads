@@ -8,5 +8,13 @@
     </form>
 </div>
 
+<ul class="book-list">
+  {{#each books as |book|}}
+  <li>
+     {{> book-info book }}
+  </li>
+  {{/each}}
+</ul>
+
 
 <script src="/javascript/search-books.js"></script>

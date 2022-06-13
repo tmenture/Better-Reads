@@ -9,11 +9,16 @@
 </div>
 
 <ul class="book-list">
-  {{#each books as |book|}}
   <li>
+<<<<<<< HEAD
      {{ book }}
+=======
+   
+     {{#each books as |book|}}
+      {{> book-info book }}
+      {{/each}}
+>>>>>>> 66edad1b891f4905d343f813d8724e487f79cc14
   </li>
-  {{/each}}
 </ul>
 
 

@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 })
   .then(dbReviewData => {
     const books = dbReviewData.map(book => book.get({ plain: true }));
-    res.render('search-books');
+    res.render('search-books', {books, loggedIn: true });
   })
   .catch(err => {
     console.log(err);
@@ -35,7 +35,7 @@ router.post('/', withAuth, (req, res) => {
       title: req.body.title,
       author: req.body.author
     })
-      .then(dbReviewData => res.json(dbReviewData))
+      .then(dbBookData => res.json(dbBookData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

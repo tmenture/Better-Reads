@@ -3,7 +3,7 @@
   <h2>
     Edit Review
   </h2>
-  <form>
+  <form class="edit-review-form">
     <div>
       <label for="review-title">Title:</label>
       <input name="review-title" type="text" value="{{review.title}}" />
@@ -17,8 +17,8 @@
       |
       <a href="/review/{{review.id}}">{{review.comments.length}} {{format_plural "comment" review.comments.length}}</a>
     </div>
-    <button type="submit">Save Review</button>
-    <button type="button">Delete review</button>
+    <button type="submit">Save review</button>
+    <button type="button" class="delete-review-btn">Delete review</button>
   </form>
 </article>
 

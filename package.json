@@ -1,7 +1,7 @@
 {
   "name": "full-stack-project-",
   "version": "1.0.0",
-  "description": "",
+  "description": "npm init -y\r npm i bycrypt express mysql2 sequelize express-handlebars express-session connect-session-sequelize\r source the database using source db/schema.sql after logging into mysql\r npm run seeds \r npm start",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,5 +31,6 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5"
-  }
+  },
+  "devDependencies": {}
 }

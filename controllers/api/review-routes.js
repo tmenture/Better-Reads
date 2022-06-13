@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Review, User, Comment, Book} = require('../../models');
+const { Review, User, Comment, Book, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
       'review_content',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.post_id)'), 'vote_count']
     ],
-    order: [['created_at', 'DESC']],
     include: [
       {
         model: Comment,
@@ -50,6 +50,7 @@ router.get('/:id', (req, res) => {
       'review_content',
       'title',
       'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -84,13 +85,23 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+  // expects {title: 'Taskmaster goes public!', reviewt_url: 'https://taskmaster.com/press', user_id: 1}
   Review.create({
     title: req.body.title,
     review_content: req.body.review_content,
-    user_id: req.session.user_id,
-    book_id: req.body.book_id
+    user_id: req.session.user_id
   })
     .then(dbReviewData => res.json(dbReviewData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.put('/upvote', withAuth, (req, res) => {
+  // custom static method created in models/Post.js
+  Review.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -123,6 +134,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
+  console.log('id', req.params.id);
   Review.destroy({
     where: {
       id: req.params.id
@@ -142,3 +154,4 @@ router.delete('/:id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+

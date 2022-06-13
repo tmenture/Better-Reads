@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Review, User, Comment, Book} = require('../models');
+const { Review, User, Comment, Book } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all reviews for dashboard
+// get all review for dashboard
 router.get('/', withAuth, (req, res) => {
   Review.findAll({
     where: {
@@ -13,7 +13,8 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      'review_content'
+      'review_content',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
     ],
     include: [
       {
@@ -53,7 +54,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      'review_content'
+      'review_content',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
     ],
     include: [
       {
@@ -137,3 +139,5 @@ router.get('/create/', withAuth, (req, res) => {
 
     
 module.exports = router;
+
+

@@ -9,11 +9,12 @@
 </div>
 
 <ul class="book-list">
-  {{#each books as |book|}}
   <li>
-     {{> book-info book }}
+   
+     {{#each books as |book|}}
+      {{> book-info book }}
+      {{/each}}
   </li>
-  {{/each}}
 </ul>
 
 

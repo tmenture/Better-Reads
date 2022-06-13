@@ -6,4 +6,3 @@ npm i bycrypt express mysql2 sequelize express-handlebars express-session connec
 source the database using source db/schema.sql after logging into mysql
 npm run seeds 
 npm start
-

@@ -35,15 +35,19 @@ var getBooks = function (event) {
 
 displayBooks = function(response) {
   
-   const bookShelfEl = response.items
-    var booksArr = [];
+   const books = response.items
    for (var i = 0; i < books.length; i++) {
-      booksArr.push({
-         title: books[i].volumeInfo.title,
-          author: books[i].volumeInfo.authors[0],
-         // description: books[i].volumeInfo.description,
-          id: books[i].id,
-        });
+      const bookShelfEl = document.getElementById("searchedBooks");
+      const bookTitle = document.createElement("p");
+      bookTitle.textContent= books[i].volumeInfo.title;
+      bookShelfEl.appendChild(bookTitle);
+      const bookAuthor = document.createElement("p"); 
+      bookAuthor.textContent= books[i].volumeInfo.authors[0];
+      bookShelfEl.appendChild(bookAuthor);
+      const bookDesc = document.createElement("p");
+      bookDesc.textContent= books[i].volumeInfo.description;
+      bookShelfEl.appendChild(bookDesc);
+      
     }
 }
 

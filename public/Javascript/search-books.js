@@ -32,11 +32,10 @@ var getBooks = function (event) {
 
 }
 
-
 displayBooks = function(response) {
   
-   const bookShelfEl = response.items
-    var booksArr = [];
+  const bookShelfEl = response.items
+  var booksArr = [];
    for (var i = 0; i < books.length; i++) {
       booksArr.push({
          title: books[i].volumeInfo.title,
@@ -47,20 +46,13 @@ displayBooks = function(response) {
     }
 }
 
-
 // button to do this on click 
-async function SaveBook(event) {
+async function saveBook (event) {
   console.log("you made it to search form handler")
-<<<<<<< HEAD
-  for( var i =0; i < booksArr.length; i++) {
-    const title = booksArr[i].title;
-    const author = booksArr[i].author;
-=======
   for( var i =0; i<booksArr.length; i++) {
     const title = $(this).title;
     const author = $(this).author;
     const id = booksArr[i].id;
->>>>>>> 66edad1b891f4905d343f813d8724e487f79cc14
     const response = await fetch(`/search`, {
         method: 'POST',
         body: JSON.stringify({
@@ -81,17 +73,6 @@ async function SaveBook(event) {
   }
 }
 
-
-<<<<<<< HEAD
-document.querySelector('.book-form').addEventListener('submit', getBooks);
-=======
 document.querySelector('.book-form').addEventListener('submit', getBooks);
 
-document.querySelector('.save-book').addEventListener('click',saveBook);
-
-
-
-
-
-
->>>>>>> 66edad1b891f4905d343f813d8724e487f79cc14
+document.querySelector('.save-book').addEventListener('click', saveBook);

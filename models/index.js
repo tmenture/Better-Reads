@@ -14,8 +14,7 @@ Review.belongsTo(User, {
 
 User.belongsToMany(Review, {
   through: 'user_id',
-  as: 'reviews',
-  foreignKey: 'user_id'
+  foreignKey: 'review_id'
 });
 
 Comment.belongsTo(User, {

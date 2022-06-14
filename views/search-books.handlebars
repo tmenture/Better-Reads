@@ -1,25 +1,11 @@
-<div id="searchedBooks">
-    <form class="book-form">
-        <div class="book-input">
-            <input type="search" id="books">
-            <label for="search"> Search for a book</label>
-        </div>
-        <button type="submit">Find Books</button>
-    </form>
-</div>
+<h1>Books based on your search </h1> 
 
-<h1>{{book_title}} </h1>
-<h2> {{book_author}} </h2>
-<p>{{book_desc}}</p>
+{{#each books }}
 
-<ul id="book-list">
-  <li>
-   
-     {{#each books as |book|}}
-      {{> book-info book }}
-      {{/each}}
-  </li>
-</ul>
+<h2>
+  Book
+{{books.volumeInfo.title}}
+</h2>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascript/search-books.js"></script>
+{{/each}}
+

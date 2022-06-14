@@ -20,11 +20,11 @@ var getBooks = function (event) {
            }
        })
 
-       .then(data => {
+       .then(res => {
 
-       console.log(data);
+       console.log(res);
 
-      displayBooks(data);
+      displayBooks(res);
 
    })
 
@@ -33,56 +33,65 @@ var getBooks = function (event) {
 }
 
 
-displayBooks = function(response) {
+displayBooks = function(res) {
   
-   const books = response.items
+   const books = res.items
    for (var i = 0; i < books.length; i++) {
-      const bookShelfEl = document.getElementById("searchedBooks");
+      const bookShelfEl = document.getElementById("book-list");
+      const cardEl = document.createElement("div");
+      cardEl.classList.add("card");
       const bookTitle = document.createElement("p");
       bookTitle.textContent= books[i].volumeInfo.title;
-      bookShelfEl.appendChild(bookTitle);
+      bookTitle.classList.add("card-header")
+      cardEl.appendChild(bookTitle);
       const bookAuthor = document.createElement("p"); 
       bookAuthor.textContent= books[i].volumeInfo.authors[0];
-      bookShelfEl.appendChild(bookAuthor);
+      bookAuthor.classList.add("card-body")
+      cardEl.appendChild(bookAuthor);
       const bookDesc = document.createElement("p");
       bookDesc.textContent= books[i].volumeInfo.description;
-      bookShelfEl.appendChild(bookDesc);
-      
+      bookDesc.classList.add("card-body");
+      cardEl.appendChild(bookDesc);
+      saveToList = document.createElement("button");
+      saveToList.textContent = "Add to List"
+      saveToList.classList.add("save-book");
+      cardEl.appendChild(saveToList);
+      bookShelfEl.appendChild(cardEl); 
+      document.querySelector('.save-book').addEventListener('click', saveBook);
     }
 }
 
 
 // button to do this on click 
-async function SaveBook(event) {
-  console.log("you made it to search form handler")
-  for( var i =0; i<booksArr.length; i++) {
-    const title = $(this).title;
-    const author = $(this).author;
-    const id = booksArr[i].id;
-    const response = await fetch(`/search`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            author,
+function saveBook() {
+  console.log(this)
+ // console.log("you made it to search form handler")
+ // for( var i =0; i<booksArr.length; i++) {
+   // const title = $(this).title;
+   // const author = $(this).author;
+   // const id = booksArr[i].id;
+   // const response = await fetch(`/search`, {
+     //   method: 'POST',
+     //   body: JSON.stringify({
+      //      title,
+      //      author,
             //description
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-      });
-      if (response.ok) {
-        console.log("heading to a new page")
-       document.location.reload();
-      } else {
-        alert(response.statusText);
-      }
-  }
+      //  }),
+      //  headers: {
+       //     'Content-Type': 'application/json'
+      //  }
+     // });
+     // if (response.ok) {
+     //   console.log("heading to a new page")
+     //  document.location.reload();
+    //  } else {
+    //    alert(response.statusText);
+    //  }
+  //}
 }
 
 
 document.querySelector('.book-form').addEventListener('submit', getBooks);
-
-document.querySelector('.save-book').addEventListener('click',saveBook);
 
 
 

@@ -11,10 +11,9 @@ router.get("/", (req, res) => {
 
 
 router.post("/", (req, res) => {
-    res.render("dashboard" );
+    res.render("search-books", {book_title: req.body.book_title, book_author: req.body.book_author, book_desc: req.body.book_desc} );
     console.log(req.body.book_title)
 });
 
 module.exports = router;
 
-//{book_title: req.body.book_title, book_author: req.body.book_author, book_desc: req.body.book_desc}

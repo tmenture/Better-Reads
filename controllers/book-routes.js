@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   console.log("rendering");
   Book.findAll({
     attributes: [
-     'id',
+     //'id',
       'title',
       'author'
   ],

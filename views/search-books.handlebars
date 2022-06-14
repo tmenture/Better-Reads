@@ -1,4 +1,4 @@
-<div class="search">
+<div id="searchedBooks">
     <form class="book-form">
         <div class="book-input">
             <input type="search" id="books">
@@ -10,16 +10,10 @@
 
 <ul class="book-list">
   <li>
-<<<<<<< HEAD
-     {{ book }}
-=======
-   
      {{#each books as |book|}}
       {{> book-info book }}
       {{/each}}
->>>>>>> 66edad1b891f4905d343f813d8724e487f79cc14
   </li>
 </ul>
-
 
 <script src="/javascript/search-books.js"></script>

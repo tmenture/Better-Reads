@@ -1,3 +1,14 @@
+<div id="searchedBooks">
+    <form class="book-form">
+        <div class="book-input">
+            <input type="search" id="books">
+            <label for="search"> Search for a book</label>
+        </div>
+        <button type="submit">Find Books</button>
+    </form>
+</div>
+
+
 <ul class="review-list">
   {{#each reviews as |review|}}
   <li>
@@ -5,3 +16,6 @@
   </li>
   {{/each}}
 </ul>
+
+
+<script src="/javascript/search-books.js"></script> 

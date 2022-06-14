@@ -1,50 +1,22 @@
+ async function searchFormHandler(event) {
+  event.preventDefault();
 
-var getBooks = function (event) {
-     event.preventDefault();
- 
-     const bookInput = document.querySelector('input[type="search"]').value;
-     console.log(bookInput);
-     const api = ("https://www.googleapis.com/books/v1/volumes?q=" + bookInput)
- 
-   axios.get(api)
- 
-    .then(res => {
- 
-        console.log(res);
-        searchFormHandler(res);
-    })
- 
-    .catch((error) => console.error("Fetch Error:", error));
- 
- };
+  const bookInput = document.querySelector('input[type="search"]').value;
 
-
- async function searchFormHandler(res) {
-   const books = res.data.items
-   console.log(books)
-   for (var i = 0; i < books.length; i++) {
-      const book_title = books[i].volumeInfo.title;
-      const book_author = books[i].volumeInfo.authors[0];
-       const book_desc = books[i].volumeInfo.description;
-     
-       const response = await fetch('/search', {
-         method: 'post',
-         body: JSON.stringify({
-           book_title,
-           book_author,
-           book_desc
-         }),
-         headers: { 'Content-Type': 'application/json' }
+  console.log(bookInput)
+ 
+       const response = await fetch(('/search?book=' + bookInput), {
+         method: 'get',
        });
    
        if (response.ok) {
-         console.log("good job")
+        document.location.replace('/search');
        } else {
          alert(response.statusText);
        }
    }
 
- }
 
- document.querySelector('.book-form').addEventListener('submit', getBooks);
+
+ document.querySelector('.book-form').addEventListener('submit', searchFormHandler);
 

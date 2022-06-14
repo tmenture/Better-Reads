@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
         books: data.data.items
          }
     )
+    console.log(data.data.items)
 })
 
 })

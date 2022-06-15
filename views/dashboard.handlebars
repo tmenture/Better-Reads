@@ -1,13 +1,25 @@
- <div>
-        <a href="/dashboard/create/"><button id="create-review" class="button is-primary is-pulled-right">create review</button></a>
-        
-        <h2 class="title font-weight-bold">Your reviews</h2>
-    </div>
+<div class="container">
+
+  <a href="/dashboard/create/"><button id="create-review" class="button is-primary is-pulled-right">Create Review</button></a>
+  
+</div>
+
+<div class="container">
+  <h2 class="title font-weight-bold">Saved Books</h2>
+  <a href="/dashboard/"></a>
+  <div class="savedBooks container">
+    <ul id="book-list">
+      
+    </ul>
+  </div>
+</div>
+
 {{#if reviews.length}}
-<section>
+<section class="container">
+  <h2 class="title font-weight-bold">Your Reviews</h2>
 {{#each reviews as |review|}}
 
-  {{> review-info review}}
+{{> review-info review}}
 <button>
       <a href="/dashboard/edit/{{id}}" class="edit-link ml-4">Edit review</a>
  </button>
@@ -17,5 +29,5 @@
 </section>
 {{else}}
 <br>
-<h5> You have no reviews yet.</h5>
+<h5 class="container"> You have no reviews yet.</h5>
 {{/if}}

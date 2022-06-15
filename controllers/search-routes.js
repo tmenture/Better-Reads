@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
-const axios = require('axios')
+const axios = require('axios');
 
 router.get("/", (req, res) => {
     const api = ("https://www.googleapis.com/books/v1/volumes?q=" + req.query.book)
@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
         books: data.data.items
          }
     )
+    console.log(data.data.items)
 })
 
 })

@@ -2,22 +2,20 @@
 
 {{#each books }}
 
+<div class="card">
 
-<ul id="book-list">
-  <li>
-     {{#each books as |book|}}
-      {{> book-info book }}
-      {{/each}}
-  </li>
-</ul>
+  <div class="card-header">
+    {{volumeInfo.title}} by {{volumeInfo.authors.[0]}} 
+  </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascript/search-books.js"></script>
+  <div class="card-body">
+    {{searchInfo.textSnippet}} 
+  </div>
 
-<h2>
-{{volumeInfo.title}}
-</h2>
+  <button class="button is-primary saveBtn" id="save-book">Save Book</button>
+  
+</div>
 
 {{/each}}
 
-
+<script src="/javascript/save-book.js"></script>

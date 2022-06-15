@@ -1,16 +1,18 @@
-<h1>Books based on your search </h1> 
+<h1 class="heading" >Books based on your search </h1> 
 
 {{#each books }}
 
-<div class="card">
-    <div clas="card-header">
-        {{volumeInfo.title}} by {{volumeInfo.authors.[0]}} 
+<div class="card mb-1">
+    <div class="card-header card-title">
+        {{volumeInfo.title}} 
+        <span class="text"> by </span>
+        <span class="author"> {{volumeInfo.authors.[0]}} </span>
     </div>
     <div class="card-body">
         {{searchInfo.textSnippet}} 
     </div>
-
 </div>
+<br>
 </h2>
 
 {{/each}}

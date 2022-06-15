@@ -1,0 +1,14 @@
+<div class="card mb-1">
+    <div class="card-header card-title"> 
+       {{title}} 
+    </div>
+    <div class="card-body"> 
+        {{review_content}}
+        <br>
+        <div class="review-comments-info float-end">
+          {{vote_count}} {{format_plural "like" vote_count}} by {{user.username}} on {{format_date created_at}}
+            |
+           <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+    </div>
+  </div>

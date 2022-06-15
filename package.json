@@ -1,11 +1,12 @@
 {
   "name": "full-stack-project-",
   "version": "1.0.0",
-  "description": "",
+  "description": "npm init -y\r npm i bycrypt express mysql2 sequelize express-handlebars express-session connect-session-sequelize\r source the database using source db/schema.sql after logging into mysql\r npm run seeds \r npm start",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,17 @@
   },
   "homepage": "https://github.com/tmenture/Full-Stack-Project-#readme",
   "dependencies": {
-    "dotenv": "^16.0.1",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^5.2.0-beta1",
+    "connect-session-sequelize": "^6.1.1",
+    "dotenv": "^8.2.0",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.20.1"
+    "express-session": "^1.17.0",
+    "handlebars": "^4.7.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.5"
   }
 }

@@ -6,8 +6,8 @@ body, html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
   color: #333;
+  font-family: sans-serif;
   background: linear-gradient(to right, rgb(124, 124, 124), #01113391);
 }
 
@@ -27,13 +27,14 @@ header  a{
 
 a {
   text-decoration: none;
-  color: black;
+  color: #7d7d7d;
   font-weight: bold;
   transition: color .1s;
 }
 
 a:hover {
   color: orange;
+  text-decoration: none;
 }
 
 nav a{
@@ -190,10 +191,40 @@ main {
   margin-bottom: 5%;
 }
 
+.card{
+  opacity: .95;
+}
+
 .card-header {
-  background-color: #01113391;
+  background: linear-gradient(to right, #010955c5, #00031ac5);
   color: white;
   font-weight: bold;
+}
+.card:hover {
+  border-color: orange;
+  border-width: 2px;
+  opacity: 1;
+}
+.text {
+  font-size: smaller;
+  color: #7d7d7d;
+ 
+}
+
+.site-title {
+  font-family: fantasy;
+ text-shadow: 1px 1px 1px #010955c5;
+ letter-spacing: 3px;
+}
+
+header span {
+  font-size: smaller;
+  color: #7d7d7d;
+  text-shadow: 1px 1px 1px #010955c5;
+}
+
+.author {
+  color: orange;
 }
 
 .review-comments-info {
@@ -210,4 +241,17 @@ main {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+.heading {
+  font-family: fantasy;
+  font-size: 36px;
+  color:white;
+  opacity: 0.95;
+}
+
+.heading:hover {
+  opacity: 1;
+  text-shadow: none;
+  text-shadow: 2px 2px 2px orange;
 }

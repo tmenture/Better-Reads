@@ -5,15 +5,9 @@
 
   console.log(bookInput)
  
-       //const response = await fetch(('/search?book=' + bookInput), {
-       //  method: 'get',
-       //});
-   
-      // if (response.ok) {
-        document.location.replace('/search?book=' + bookInput);
-      // } else {
-      //   alert(response.statusText);
-      // }
+  
+  document.location.replace('/search?book=' + bookInput);
+    
    }
 
 

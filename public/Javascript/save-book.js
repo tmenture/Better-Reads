@@ -1,21 +1,28 @@
-function saveBook () {
-    const bookTitle = "{{volumeInfo.title}}";
-    const titleText = bookTitle.value;
+const savedBooks = [];
 
-    saveBook(titleText);
+async function saveBook() {
+
+    const title = document.querySelector('.book-title').value;
+    const author = document.querySelector('.book-author').value;
+
+    const response = await fetch(`/api/books`, {
+        method: 'POST',
+        body: JSON.stringify({
+            title,
+            author
+        }),
+        headers: {
+            'Content-Type': 'application.json'
+        }
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard/');
+    } else {
+        alert(response.statusText);
+    }
 }
 
-function addBookToList (titleText) {
-    const saveList = document.getElementById("book-list");
-    const listItem = document.createElement("li");
+document.querySelector('.saveBtn').addEventListener('click', saveBook);
 
-    listItem.textContent = `${new Date().toLocaleString("es-US")} - ${titleText}`;
-
-    saveList.appendChild(listItem);
-}
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    const saveBtn = document.getElementById('saveBtn');
-
-    saveBtn.addEventListener('click', saveBook);
-});
+module.exports = saveBook();

@@ -26,10 +26,6 @@ router.get('/', (req, res) => {
       {
         model: User,
         attributes: ['username']
-      },
-      {
-        model: Book,
-        attributes: ['title', 'author']
       }
     ]
   })
@@ -116,5 +112,4 @@ router.get('/signup', (req, res) => {
 });
 
 module.exports = router;
-
 

@@ -4,8 +4,9 @@ async function searchFormHandler(event) {
   const bookInput = document.querySelector('input[type="search"]').value;
 
   console.log(bookInput)
-
-    document.location.replace('/search?book=' + bookInput);
+ 
+  
+  document.location.replace('/search?book=' + bookInput);
      
 }
 

@@ -1,7 +1,11 @@
-function saveBook(req, res) {
+function saveBook() {
     const bookInfo = document.querySelector('.card-header').textContent;
 
     console.log(bookInfo);
 }
 
-document.querySelector('.saveBtn').addEventListener('click', saveBook);
+const buttons = document.querySelectorAll('.saveBtn');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', saveBook);
+});

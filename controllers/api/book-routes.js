@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const axios = require('axios');
 const { Book } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -31,4 +32,4 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = axios;

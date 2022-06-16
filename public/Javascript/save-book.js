@@ -1,28 +1,25 @@
-const savedBooks = [];
+function saveBook(req, res) {
 
-async function saveBook() {
+    const bookInfo = document.querySelector('.book-info');
+    // const author = document.querySelector('.book-author');
 
-    const title = document.querySelector('.book-title').value;
-    const author = document.querySelector('.book-author').value;
+    const url = "https://www.googleapis.com/books/v1/volumes?q=" + req.query;
 
-    const response = await fetch(`/api/books`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            author
-        }),
-        headers: {
-            'Content-Type': 'application.json'
-        }
-    });
+   fetch(url).then((res) => res.json()).then(function(data) {
+    let savedBook = data.results;
+    savedBook.map(function(books) {
+        let list = document.createElement('li');
+        list.innerHTML = `${books.index}`;
+
+        bookInfo.appendChild(list);
+    })
+   })
 
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        response.render('saved-books.handlebars',);
     } else {
         alert(response.statusText);
     }
 }
 
 document.querySelector('.saveBtn').addEventListener('click', saveBook);
-
-module.exports = saveBook();

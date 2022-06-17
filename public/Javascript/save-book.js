@@ -1,12 +1,13 @@
-function saveBook(event) {
+async function saveBook(event) {
     event.preventDefault();
 
-    let bookInfo = document.querySelector('.card-header').textContent;
+    const bookInfo = document.querySelector('.card-header').textContent;
 
     console.log(bookInfo);
+    
 }
 
-let buttons = document.querySelectorAll('.saveBtn');
+let buttons = document.querySelectorAll('#save-book');
 
 buttons.forEach((button) => {
     button.addEventListener('click', saveBook);

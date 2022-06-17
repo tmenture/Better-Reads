@@ -1,4 +1,6 @@
-function saveBook() {
+function saveBook(event) {
+    event.preventDefault();
+
     const bookInfo = document.querySelector('.card-header').textContent;
 
     console.log(bookInfo);
@@ -6,6 +8,10 @@ function saveBook() {
 
 const buttons = document.querySelectorAll('.saveBtn');
 
-buttons.forEach((button) => {
-    button.addEventListener('click', saveBook);
+// buttons.forEach((button) => {
+//     button.addEventListener('click', saveBook);
+// });
+
+$(document).on('click', '.card-header', saveBook() {
+    $(this).closest('.card-header').data();
 });

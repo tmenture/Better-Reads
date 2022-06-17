@@ -3,7 +3,7 @@ const axios = require('axios');
 const { Book, User, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/book', (req, res) => {
     Book.findAll({
         attributes: [
             'id',
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/book/:id', (req, res) => {
     Book.findOne({
         where: {
             id: req.params.id

@@ -16,9 +16,17 @@ Book.init(
       allowNull: false
     },
     author: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    saved_book: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    rating: {
+      type: DataTypes.TINYINT,
+      allowNull: true
+    }
   },
   {
     sequelize,

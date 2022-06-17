@@ -1,3 +1,7 @@
+// const { JSDOM } = require('jsdom');
+// const { window } = new JSDOM( "" );
+// const $ = require( "jquery" )( window );
+
 function saveBook(event) {
     event.preventDefault();
 
@@ -8,10 +12,9 @@ function saveBook(event) {
 
 const buttons = document.querySelectorAll('.saveBtn');
 
-// buttons.forEach((button) => {
-//     button.addEventListener('click', saveBook);
-// });
-
-$(document).on('click', '.card-header', saveBook() {
-    $(this).closest('.card-header').data();
+buttons.forEach((button) => {
+    button.addEventListener('click', saveBook);
 });
+// $(this).on('click', '#saveBtn', saveBook() {
+    
+// });

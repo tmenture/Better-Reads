@@ -1,16 +1,13 @@
-// const { JSDOM } = require('jsdom');
-// const { window } = new JSDOM( "" );
-// const $ = require( "jquery" )( window );
-
-function saveBook(event) {
+async function saveBook(event) {
     event.preventDefault();
 
     const bookInfo = document.querySelector('.card-header').textContent;
 
     console.log(bookInfo);
+    
 }
 
-const buttons = document.querySelectorAll('.saveBtn');
+let buttons = document.querySelectorAll('#save-book');
 
 buttons.forEach((button) => {
     button.addEventListener('click', saveBook);

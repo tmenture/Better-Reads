@@ -4,15 +4,19 @@
 
 <div class="card">
 
-  <div class="card-header" id="card-info">
-    {{volumeInfo.title}} by {{volumeInfo.authors.[0]}} 
+  <div class="card-header title" id="book-title">
+    {{volumeInfo.title}}  
+  </div>
+
+  <div class="card-header author" id="book-author">
+    By {{volumeInfo.authors.[0]}}
   </div>
 
   <div class="card-body">
     {{searchInfo.textSnippet}} 
   </div>
 
-  <button class="button is-primary saveBtn" id="save-book">Save Book</button>
+  <button class="button is-primary" id="save-book">Save Book</button>
   
 </div>
 {{/each}}

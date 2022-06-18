@@ -70,14 +70,15 @@ router.get('/book/:id', (req, res) => {
 
 router.post('/dashboard', withAuth, (req, res) => {
     Book.create({
-        id: req.body.id,
-        title: req.body.title,
-        author: req.body.author
+        title: req.body.bookCapture,
+        author: req.body.authorCapture,
+        user_id: req.session.user_id
     }).then(dbBookData => res.json(dbBookData)) 
     .catch(err => {
         console.log(err);
         res.status(400).json(err);
     });
+    console.log(req.body);
 });
 
 router.delete('/dashboard/:id', withAuth, (req, res) => {
@@ -97,4 +98,4 @@ router.delete('/dashboard/:id', withAuth, (req, res) => {
     });
 });
 
-module.exports = axios;
+module.exports = router;

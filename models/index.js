@@ -27,7 +27,6 @@ Review.belongsToMany(User, {
   onDelete: 'SET NULL'
 });
 
-
 Vote.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
@@ -74,5 +73,14 @@ Book.hasMany(Review, {
   foreignKey: 'book_id',
   onDelete: 'SET NULL'
 })
+
+User.hasMany(Book, {
+  foreignKey: 'id',
+});
+
+Book.belongsTo(User, {
+  foreignKey: 'id',
+  onDelete: 'SET NULL'
+});
 
 module.exports = { User, Review, Vote, Comment, Book };

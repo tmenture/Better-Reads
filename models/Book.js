@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./User');
 
 class Book extends Model {}
  
@@ -19,14 +20,6 @@ Book.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    saved_book: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    rating: {
-      type: DataTypes.TINYINT,
-      allowNull: true
-    }
   },
   {
     sequelize,

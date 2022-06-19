@@ -12,7 +12,7 @@ This is a blog for readers. Any user who comes across the site will be able to s
 * From here you can use the pre created seeds or alter them to include your test info
 * Once satisfied with the seeds run npm start to create and start the database
 * Then use ctrl C (on windows) to exit the server; back in console run npm run seeds to upload your test info to the database
-* Run npm start once more in the console and your database will be up and running filled with all your data
+* Run npm start once more in the console and the database will be up and running filled with all your data
 
 ## Link to Deployed Application (On Heroku):
 https://bestest-reads.herokuapp.com/

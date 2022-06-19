@@ -3,7 +3,7 @@
 ## Purpose:
 This is a blog for readers. Any user who comes across the site will be able to search any book and be presented with the title, author and a short description of what the book is about. If a user decides to create an account they will have the authority to add or delete reviews, through a user dashboard, and comment on other peoples reviews all seen from the home page. When a user navigates to the dashboard they will be presented with all the posts they have made where they can view or edit their posts. All in all if youre looking for a new book or a highly reccommended one check out what our users have to say. 
 
-## Installation (For People Looking To Help Make Better Reads To Be The Best):
+## Installation (For People Looking To Help Make Better Reads Be The Best):
 * If you do not already have it installed, install node.js (Here is the link to the download: https://nodejs.org/en/download/)
 * Clone this repository to your machine (& switch to the directory you just created)
 * Run npm i in your console to install necessary packages to run databse
@@ -15,7 +15,7 @@ This is a blog for readers. Any user who comes across the site will be able to s
 * Run npm start once more in the console and your database will be up and running filled with all your data
 
 ## Link to Deployed Application (On Heroku):
-    https://bestest-reads.herokuapp.com/
+https://bestest-reads.herokuapp.com/
 
 ![Snapshot](/repo-pic/assets/better-reads-pic.png)
 

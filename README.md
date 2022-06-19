@@ -1,7 +1,10 @@
 # Better Reads
 
-## Purpose:
+## Description:
 This is a blog for readers. Any user who comes across the site will be able to search any book and be presented with the title, author and a short description of what the book is about. If a user decides to create an account they will have the authority to add or delete reviews, through a user dashboard, and comment on other peoples reviews all seen from the home page. When a user navigates to the dashboard they will be presented with all the posts they have made where they can view or edit their posts. All in all if youre looking for a new book or a highly reccommended one check out what our users have to say. 
+
+## Purpose:
+To give individuals who love reading an outlet to discuss authors, titles, and opinions on their favorite works, as well as, learn about more books and auhors they may not have heard of.
 
 ## Installation (For People Looking To Help Make Better Reads Be The Best):
 * If you do not already have it installed, install node.js (Here is the link to the download: https://nodejs.org/en/download/)

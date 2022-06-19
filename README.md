@@ -17,7 +17,7 @@ This is a blog for readers. Any user who comes across the site will be able to s
 ## Link to Deployed Application (On Heroku):
     https://bestest-reads.herokuapp.com/
 
-    ![Snapshot](./repo-pic/better-reads-pic.png)
+    ![Snapshot](/repo-pic/assets/better-reads-pic.png)
 
 ## Built With: 
 * Node.js

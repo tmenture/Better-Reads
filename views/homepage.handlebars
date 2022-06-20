@@ -1,24 +1,27 @@
-<h1> Find Books to Read </h1>
+<h1 class="heading"> Find Books to Read </h1>
 <div  id="searchedBooks">
     <form class="book-form">
         <div class="book-input">
-            <input type="search" id="books">
-            <label for="search"> Search for a book</label>
+            <input type="search" id="books" placeholder="search for a book">
+          <button class="display-inline" type="submit" id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
-        <button type="submit">Find Books</button>
     </form>
 </div>
+ <br>
+ <br>
+<br>
 
-<h1> See What Other People Are Saying </h1>
-<div>
-      {{#each reviews as |review|}}
-      <li>
-        {{> review-info review }}
-      </li>
-      {{/each}}
-    </ul> 
-</div>
+ <h1 class="heading"> See What Other People Are Saying </h1>
+<ul class="review-list">
+  {{#each reviews as |review|}}
+  <li>
+    {{> review-info review }}
+  </li>
+  {{/each}}
+</ul> 
 
 
-
+<script src="https://kit.fontawesome.com/94a9fd42dd.js" crossorigin="anonymous"></script>
 <script src="/javascript/search-books.js"></script> 

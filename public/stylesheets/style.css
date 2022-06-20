@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /* background: url(../books\ background.jpg); */
 }
 
 body, html {
@@ -9,6 +10,7 @@ body, html {
   color: #333;
   font-family: sans-serif;
   background: linear-gradient(to right, rgb(124, 124, 124), #01113391);
+  background: url(../books\ background.jpg);
 }
 
 header {
@@ -39,6 +41,8 @@ a:hover {
 
 nav a{
   margin-left: 10px;
+  color: black;
+  text-shadow: 1 1 1 ;
 }
 
 button {
@@ -53,7 +57,7 @@ button {
 }
 
 button:hover {
-  background-color: #8cfce935;
+  background-color: #0d0d0d9a;
 }
 
 .review-list {
@@ -95,7 +99,7 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,7 +211,7 @@ main {
 }
 .text {
   font-size: smaller;
-  color: #7d7d7d;
+  color: rgba(2, 29, 112, 0.945);
  
 }
 
@@ -246,7 +250,7 @@ header span {
 .heading {
   font-family: fantasy;
   font-size: 36px;
-  color:white;
+  color:rgba(0, 0, 0, 0.82);
   opacity: 0.95;
 }
 
